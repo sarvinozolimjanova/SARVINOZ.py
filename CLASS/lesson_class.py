@@ -37,20 +37,45 @@ car3 = Car('Bentley', "i don't know", 'white', 500_000, 300, 2009)
 
 """ 1 - mashq """
 class Student():
-    """ """
+    """ The class for students """
     
-    def __init__(self, name:str, surname:str, kurs:int, marks:list):
+    def __init__(self, name:str, surname:str, year:int, kurs:int, marks:list, friends:list):
         self.name = name
         self.surname = surname
         self.kurs = kurs
         self.marks = marks
+        self.year = year
+        self.friends = friends
 
     def get_info(self):
+        """  about student """
+        return f"Student {self.name} {self.surname} {self.kurs}-kurs studenti."
+    
+    def get_middle_ball(self):
+        """ Student's ball """
         return sum(self.marks)/len(self.marks)
+    
+    def get_full_name(self):
+        """ Student's full name """
+        return f"{self.name} {self.surname}"
+    
+    def get_age(self, now=2025):
+        """ Student's age"""
+        return now-self.year
+    
+    def get_friends(self):
+        """ Student's friends """
+        info = f"{self.name}ning do'stlari: "
+        for ism in self.friends:
+            info += f"{ism} "
 
+        return info
+    
 
-durbek = Student("Durbek", "Muhiddinov", 2, [3,4,4,3])
-ali = Student("Ali", "Bahodirov", 4, [5, 4, 4, 3])
+durbek = Student("Durbek", "Muhiddinov", 2009, 2, [4, 3, 4, 5], ["Ibrohim", "Said", "Otabek"])
 
 print(durbek.get_info())
-print(ali.get_info())
+print(durbek.get_middle_ball())
+print(durbek.get_full_name())
+print(durbek.get_age())
+print(durbek.get_friends())
