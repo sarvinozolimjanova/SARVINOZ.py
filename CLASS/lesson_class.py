@@ -70,6 +70,16 @@ class Student():
             info += f"{ism} "
 
         return info
+
+    def set_kurs(self):
+        """ a function that increases the student's rate (1-6)"""
+
+        if self.kurs < 6:
+            self.kurs += 1
+        else:
+            return "Siz hozirda eng so'nggi kursda siz."
+
+        return self.kurs
     
 
 durbek = Student("Durbek", "Muhiddinov", 2009, 2, [4, 3, 4, 5], ["Ibrohim", "Said", "Otabek"])
@@ -79,3 +89,4 @@ print(durbek.get_middle_ball())
 print(durbek.get_full_name())
 print(durbek.get_age())
 print(durbek.get_friends())
+print(durbek.set_kurs())
