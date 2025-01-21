@@ -84,9 +84,45 @@ class Student():
 
 durbek = Student("Durbek", "Muhiddinov", 2009, 2, [4, 3, 4, 5], ["Ibrohim", "Said", "Otabek"])
 
-print(durbek.get_info())
-print(durbek.get_middle_ball())
-print(durbek.get_full_name())
-print(durbek.get_age())
-print(durbek.get_friends())
-print(durbek.set_kurs())
+# print(durbek.get_info())
+# print(durbek.get_middle_ball())
+# print(durbek.get_full_name())
+# print(durbek.get_age())
+# print(durbek.get_friends())
+# print(durbek.set_kurs())
+
+
+""" library class """
+class Library():
+    """ Kutubxona classi """
+    def __init__(self, name:str, adress:str):
+        self.name = name
+        self.adress = adress
+        self.books = []
+        self.books_count = 0
+
+    def get_info(self):
+        """ Kutubhona haqidagi ma'lumotlarni qaytaradi (nomi, manzili, kutubxonadagi kitoblar soni)"""
+        return f" Bu kutubhona haqida ma'lumot {self.name}, manzili {self.adress}, {self.books_count} ta kitob bor."
+
+    def add_book(self, book):
+        """ Kutubhonaga kitob qo'shuvchi funksiya """
+        self.books.append(book)
+        self.books_count += 1
+        return f"{book} kitobi qo'shildi." 
+
+    def get_books(self):
+        """ Kutubxonadagi kitoblar nomini qaytaradigan funksiya """
+        info = f"{self.name}ning kitoblari nomlari: "
+        for book in self.books:
+            info += f"{book} "
+
+        return info
+
+book1 = Library("Nodirabegim", "4 yoki 3- mkr")
+
+
+print(book1.add_book("AAA"))
+print(book1.add_book("SSS"))
+print(book1.get_info())
+print(book1.get_books())
