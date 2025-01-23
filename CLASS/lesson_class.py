@@ -92,6 +92,7 @@ durbek = Student("Durbek", "Muhiddinov", 2009, 2, [4, 3, 4, 5], ["Ibrohim", "Sai
 # print(durbek.set_kurs())
 
 
+
 """ library class """
 class Library():
     """ Kutubxona classi """
@@ -100,6 +101,12 @@ class Library():
         self.adress = adress
         self.books = []
         self.books_count = 0
+
+    def __str__(self):
+        return self.name
+
+    # def __repr__(self):
+    #     return self.name
 
     def get_info(self):
         """ Kutubhona haqidagi ma'lumotlarni qaytaradi (nomi, manzili, kutubxonadagi kitoblar soni)"""
@@ -119,10 +126,73 @@ class Library():
 
         return info
 
-book1 = Library("Nodirabegim", "4 yoki 3- mkr")
+    def delete_book(self, book):
+        """ Kutubxonadan kitobni o'chiruvchi funksiya """
+        if book in self.books:
+            self.books.remove(book)
+            self.books_count -= 1
+            return f"{book} kitobi kutubxonadan o'chirildi. "
+        else:
+            return f" {book} kitobi kutubxonada topilmadi. "
+
+kutubxona1 = Library("Nodira", "4 yoki 3- mkr")
 
 
-print(book1.add_book("AAA"))
-print(book1.add_book("SSS"))
-print(book1.get_info())
-print(book1.get_books())
+# print(book1.add_book("AAA"))
+# print(book1.add_book("SSS"))
+# print(book1.get_info())
+# print(book1.get_books())
+
+# print(kutubxona1)
+
+
+""" BOOK mashq """
+class Book():
+    """ Kitob haqida class """
+    def __init__(self, name:str, author:str, year:int, publisher:str, price:int):
+        """ """
+        self.name = name
+        self.author = author
+        self.year = year 
+        self.publisher = publisher
+        self.price = price
+
+    def __str__(self):
+        """ Kitob haqida """
+        return f"{self.name} kitob"
+
+    def get_info(self):
+        """ Kitob haqida ma'lumotlar """
+        return f"{self.name} kitobi {self.author} tomonidan {self.year}-yilda yozilgan. Hozirda uning narhi {self.price} so'm."
+
+    def get_name(self):
+        """ Kitobni nomini chiqarib beruvchi funksiya """
+        return self.name
+
+    def get_price(self):
+        """ Kitobning narhini ko'rsatib beradigan funksiya """
+        return self.price
+
+    def get_year(self):
+        """ Kitobning nechanchi yilda yozlganini ko'rsatib beradigan funksiya """
+        return self.year
+
+    def get_author(self):
+        """ Kitobning muallifini ko'rsatib beradigan funksiya """
+        return self.year
+
+book1 = Book("Rome & Julietta", "Uilyam Shekspeare", 1591, "bilmadim", 65_000)
+
+
+""" Obyekting hususiyat va metodlarini ko'rish """
+""" dir() funksiyasi """
+from pprint import pprint  # prety print 
+print(dir(kutubxona1))
+print(dir(book1))
+
+
+""" __dict__ metodi """
+""" __dict__ metodi obyektning hususiyatlarini lug'at ko'rinishida qaytaradi """
+print(kutubxona1.__dict__)
+print(book1.__dict__)
+
