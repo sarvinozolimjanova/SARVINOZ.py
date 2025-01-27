@@ -193,6 +193,6 @@ print(dir(book1))
 
 """ __dict__ metodi """
 """ __dict__ metodi obyektning hususiyatlarini lug'at ko'rinishida qaytaradi """
-print(kutubxona1.__dict__)
-print(book1.__dict__)
+pprint(kutubxona1.__dict__)
+pprint(book1.__dict__)
 
